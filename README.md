@@ -33,18 +33,33 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/).
 
 ## Installation
 
-1. Install [chezmoi](https://www.chezmoi.io/install/):
-   ```bash
-   brew install chezmoi
-   ```
+### Prerequisites
 
-2. Run the install script:
-   ```bash
-   ./install.sh
-   ```
+Install [chezmoi](https://www.chezmoi.io/install/):
+```bash
+brew install chezmoi
+```
 
-This will:
-1. Initialize chezmoi
-2. Pull the dotfiles from the repository
-3. Apply the configurations
-4. Source zsh config in your `.zshrc`
+### Fresh Install (from GitHub)
+
+```bash
+chezmoi init --apply https://github.com/luchhh/my-dotfiles.git
+echo 'source ~/.config/zsh/init.zsh' >> ~/.zshrc
+```
+
+### From Local Clone
+
+If you already have the repo cloned:
+```bash
+rm -rf ~/.local/share/chezmoi
+ln -s /path/to/my-dotfiles ~/.local/share/chezmoi
+chezmoi apply
+echo 'source ~/.config/zsh/init.zsh' >> ~/.zshrc
+```
+
+### After Installation
+
+Restart your terminal or run:
+```bash
+source ~/.zshrc
+```
