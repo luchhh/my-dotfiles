@@ -44,8 +44,6 @@ Install [chezmoi](https://www.chezmoi.io/install/):
 brew install chezmoi
 ```
 
-Then run `install.sh` — it handles the rest.
-
 ### Fresh Install (from GitHub)
 
 ```bash
@@ -65,7 +63,12 @@ echo 'source ~/.config/zsh/init.zsh' >> ~/.zshrc
 
 ### After Installation
 
-Restart your terminal or run:
+Run `install.sh` to install remaining dependencies (Claude Code, gh CLI):
+```bash
+bash ~/.local/share/chezmoi/install.sh
+```
+
+Then restart your terminal or run:
 ```bash
 source ~/.zshrc
 ```
