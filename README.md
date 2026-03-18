@@ -39,9 +39,10 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/).
 
 ### Prerequisites
 
-Install [chezmoi](https://www.chezmoi.io/install/) and Python 3.10+:
+Install [chezmoi](https://www.chezmoi.io/install/), Python 3.10+, and [Claude Code](https://claude.ai/code):
 ```bash
 brew install chezmoi python@3.11
+npm install -g @anthropic-ai/claude-code
 ```
 
 ### Fresh Install (from GitHub)

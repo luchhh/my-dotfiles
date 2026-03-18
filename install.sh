@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Install Claude Code if not present
+if ! command -v claude &>/dev/null; then
+    echo "Installing Claude Code..."
+    npm install -g @anthropic-ai/claude-code
+fi
+
 # Install gh CLI if not present
 if ! command -v gh &>/dev/null; then
     echo "Installing gh CLI..."
