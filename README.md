@@ -63,7 +63,7 @@ echo 'source ~/.config/zsh/init.zsh' >> ~/.zshrc
 
 ### After Installation
 
-Run `install.sh` to install remaining dependencies (Claude Code, gh CLI):
+Run `install.sh` to install remaining dependencies (asdf, Python, Node.js, Claude Code, gh CLI):
 ```bash
 bash ~/.local/share/chezmoi/install.sh
 ```
