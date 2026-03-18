@@ -21,6 +21,10 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/).
   - `prefix + r` - Reload config
   - `prefix + b` - Break pane to new window
 
+### Claude Code
+- Skills: `/commit`, `/ship`
+- Scripts and global rules in `~/.claude/`
+
 ### zsh
 - **Custom prompt**: Shows current directory and git branch with dirty indicator
 - **Aliases**:
