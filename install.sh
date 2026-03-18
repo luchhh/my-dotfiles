@@ -2,8 +2,12 @@
 
 # Install Claude Code if not present
 if ! command -v claude &>/dev/null; then
-    echo "Installing Claude Code..."
-    npm install -g @anthropic-ai/claude-code
+    if ! command -v npm &>/dev/null; then
+        echo "npm not found — install Node.js first: https://nodejs.org/" >&2
+    else
+        echo "Installing Claude Code..."
+        npm install -g @anthropic-ai/claude-code
+    fi
 fi
 
 # Install gh CLI if not present
