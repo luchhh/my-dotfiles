@@ -35,9 +35,9 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/).
 
 ### Prerequisites
 
-Install [chezmoi](https://www.chezmoi.io/install/):
+Install [chezmoi](https://www.chezmoi.io/install/) and Python 3.10+:
 ```bash
-brew install chezmoi
+brew install chezmoi python@3.11
 ```
 
 ### Fresh Install (from GitHub)
