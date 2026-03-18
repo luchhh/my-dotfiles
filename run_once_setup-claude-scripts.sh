@@ -12,15 +12,18 @@ REQUIREMENTS="$SCRIPTS_DIR/requirements.txt"
 
 echo "[chezmoi] Setting up ~/.claude/scripts venv..."
 
-# Find python3.11+ — prefer explicit versions, fall back to python3
-if command -v python3.11 &>/dev/null; then
-    PYTHON="python3.11"
-elif command -v python3.12 &>/dev/null; then
-    PYTHON="python3.12"
-elif command -v python3 &>/dev/null; then
+# Source asdf so its managed Python is on PATH
+if command -v brew &>/dev/null && [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ]; then
+    source "$(brew --prefix asdf)/libexec/asdf.sh"
+elif [ -f ~/.asdf/asdf.sh ]; then
+    source ~/.asdf/asdf.sh
+fi
+
+# Find Python 3.10+
+if command -v python3 &>/dev/null && python3 -c "import sys; sys.exit(0 if sys.version_info >= (3,10) else 1)"; then
     PYTHON="python3"
 else
-    echo "[chezmoi] ERROR: python3 not found. Install Python 3.10+ and re-run chezmoi apply." >&2
+    echo "[chezmoi] ERROR: Python 3.10+ not found. Run install.sh first." >&2
     exit 1
 fi
 

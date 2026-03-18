@@ -10,3 +10,10 @@ source ~/.config/zsh/lib/prompt.zsh
 
 # Optional tools
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# asdf version manager
+if command -v brew &>/dev/null && [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ]; then
+    source "$(brew --prefix asdf)/libexec/asdf.sh"
+elif [ -f ~/.asdf/asdf.sh ]; then
+    source ~/.asdf/asdf.sh
+fi
