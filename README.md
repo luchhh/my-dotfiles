@@ -39,9 +39,11 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/).
 
 ### Prerequisites
 
-Install [chezmoi](https://www.chezmoi.io/install/):
+Install [chezmoi](https://www.chezmoi.io/install/) and [asdf](https://asdf-vm.com/) (for Python and Node.js):
 ```bash
-brew install chezmoi
+brew install chezmoi asdf
+asdf plugin add python && asdf install python latest:3.12
+asdf plugin add nodejs && asdf install nodejs latest:20
 ```
 
 ### Fresh Install (from GitHub)
@@ -63,7 +65,7 @@ echo 'source ~/.config/zsh/init.zsh' >> ~/.zshrc
 
 ### After Installation
 
-Run `install.sh` to install remaining dependencies (asdf, Python, Node.js, Claude Code, gh CLI):
+Run `install.sh` to install remaining dependencies (Claude Code, gh CLI):
 ```bash
 bash ~/.local/share/chezmoi/install.sh
 ```
