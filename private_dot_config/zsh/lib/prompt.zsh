@@ -1,3 +1,5 @@
+setopt PROMPT_SUBST
+
 # First define the git functions for ZSH
 
 function git_dirty {
