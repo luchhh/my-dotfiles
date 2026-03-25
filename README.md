@@ -2,11 +2,61 @@
 
 Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/).
 
+## Bootstrap (new machine)
+
+The only manual step is installing Homebrew and chezmoi. Everything else is automated.
+
+```bash
+# 1. Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 2. Install chezmoi
+brew install chezmoi
+
+# 3. Init and apply dotfiles
+chezmoi init --apply https://github.com/luchhh/my-dotfiles.git
+```
+
+`chezmoi apply` will:
+- Deploy all config files
+- Run `brew bundle` to install all apps and tools from the Brewfile
+- Set up the Python venv for Claude scripts
+
+**Install asdf runtimes** (asdf itself is installed by brew bundle, but plugins need to be added manually):
+```bash
+asdf plugin add python && asdf install python latest:3.12
+asdf plugin add nodejs && asdf install nodejs latest:20
+```
+
+**Run `chezmoi apply` again** to complete the Python venv setup for Claude scripts (skipped on the first pass since Python wasn't available yet):
+```bash
+chezmoi apply
+```
+
+**After applying**, hook up the zsh config (one-time, per machine):
+```bash
+echo 'source ~/.config/zsh/init.zsh' >> ~/.zshrc
+```
+This is needed because chezmoi doesn't manage `~/.zshrc` directly, so this line tells zsh where to load the config from.
+
+**Set your git identity** (also one-time, not stored in the repo for privacy):
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+```
+
+Then restart your terminal or run `source ~/.zshrc`.
+
 ## What's Included
 
-### inputrc
-- Vi editing mode for readline-based applications
-- `Ctrl-l` clears screen in both command and insert modes
+### zsh
+- **Custom prompt**: Shows current directory and git branch with dirty indicator
+- **Aliases**:
+  - Navigation: `..`, `...`
+  - Git shortcuts: `ga`, `gs`, `gc`, `gco`, `gd`, `gl`, `gpu`, etc.
+- **Colors**: ANSI color variables for scripting
+- **Path**: Homebrew integration for Apple Silicon
+- **Optional**: fzf integration if installed
 
 ### tmux
 - **Prefix**: `Alt-Space` (instead of default `Ctrl-b`)
@@ -16,61 +66,15 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/).
 - **Pane navigation**: `Alt-h/j/k/l` with vim-tmux-navigator awareness
 - **Theme**: Catppuccin color scheme
 - **Other bindings**:
-  - `prefix + Space` - Zoom pane
-  - `prefix + t` - Choose session tree
-  - `prefix + r` - Reload config
-  - `prefix + b` - Break pane to new window
+  - `prefix + Space` — Zoom pane
+  - `prefix + t` — Choose session tree
+  - `prefix + r` — Reload config
+  - `prefix + b` — Break pane to new window
+
+### inputrc
+- Vi editing mode for readline-based applications
+- `Ctrl-l` clears screen in both command and insert modes
 
 ### Claude Code
 - Skills: `/commit`, `/ship`
 - Scripts and global rules in `~/.claude/`
-
-### zsh
-- **Custom prompt**: Shows current directory and git branch with dirty indicator
-- **Aliases**:
-  - Navigation: `..`, `...`
-  - Tree fallback if not installed
-  - Git shortcuts: `ga`, `gs`, `gc`, `gco`, `gd`, `gl`, `gpu`, etc.
-- **Colors**: ANSI color variables for scripting
-- **Path**: Homebrew integration for Apple Silicon
-- **Optional**: fzf integration if installed
-
-## Installation
-
-### Prerequisites
-
-Install [chezmoi](https://www.chezmoi.io/install/) and [asdf](https://asdf-vm.com/) (for Python and Node.js):
-```bash
-brew install chezmoi asdf
-asdf plugin add python && asdf install python latest:3.12
-asdf plugin add nodejs && asdf install nodejs latest:20
-```
-
-### Fresh Install (from GitHub)
-
-```bash
-chezmoi init --apply https://github.com/luchhh/my-dotfiles.git
-echo 'source ~/.config/zsh/init.zsh' >> ~/.zshrc
-```
-
-### From Local Clone
-
-If you already have the repo cloned:
-```bash
-rm -rf ~/.local/share/chezmoi
-ln -s /path/to/my-dotfiles ~/.local/share/chezmoi
-chezmoi apply
-echo 'source ~/.config/zsh/init.zsh' >> ~/.zshrc
-```
-
-### After Installation
-
-Run `install.sh` to install remaining dependencies (Claude Code, gh CLI):
-```bash
-bash ~/.local/share/chezmoi/install.sh
-```
-
-Then restart your terminal or run:
-```bash
-source ~/.zshrc
-```
