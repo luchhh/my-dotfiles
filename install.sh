@@ -1,24 +1,3 @@
 #!/bin/bash
-set -e
-
-# ── Claude Code ─────────────────────────────────────────────────
-if ! command -v claude &>/dev/null; then
-    if ! command -v npm &>/dev/null; then
-        echo "npm not found — install Node.js first: https://nodejs.org/" >&2
-    else
-        echo "Installing Claude Code..."
-        npm install -g @anthropic-ai/claude-code
-    fi
-fi
-
-# ── gh CLI ──────────────────────────────────────────────────────
-if ! command -v gh &>/dev/null; then
-    echo "Installing gh CLI..."
-    if command -v brew &>/dev/null; then
-        brew install gh
-    else
-        echo "brew not found — install gh CLI manually: https://cli.github.com/" >&2
-    fi
-fi
-
-echo "Installation complete."
+# All packages are managed via the Brewfile.
+# Bootstrap: brew install chezmoi && chezmoi init luchhh/my-dotfiles && chezmoi apply

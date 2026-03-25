@@ -1,7 +1,10 @@
 # Global Claude Rules
 
 ## chezmoi
-Always use `chezmoi git` to interact with the chezmoi repo — never `cd ~/.local/share/chezmoi && git ...`.
+
+Files under `~/.claude/` and `~/.config/` are managed by chezmoi — edit them via `~/.local/share/chezmoi/` instead of directly, then run `chezmoi apply` to deploy the changes.
+
+Use `chezmoi git` for all git operations on the dotfiles repo:
 
 ```bash
 chezmoi git -- add -A

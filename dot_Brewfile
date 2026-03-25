@@ -1,0 +1,13 @@
+brew "asdf"
+brew "gh"
+brew "git"
+
+cask "bitwarden"
+cask "brave-browser"
+cask "claude-code"
+cask "cursor"
+cask "deezer"
+cask "google-chrome"
+cask "slack"
+cask "whatsapp"
+cask "zoom"
