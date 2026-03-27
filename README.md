@@ -63,6 +63,9 @@ Then restart your terminal or run `source ~/.zshrc`.
 - Vi editing mode for readline-based applications
 - `Ctrl-l` clears screen in both command and insert modes
 
+### Ghostty
+- `macos-option-as-alt = left` — left Option produces `Alt` sequences (word jump, etc.), right Option produces special characters (`@`, etc.)
+
 ### Claude Code
 - Skills: `/commit`, `/ship`
 - Global rules in `~/.claude/CLAUDE.md`
