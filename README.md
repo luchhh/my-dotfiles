@@ -20,18 +20,6 @@ chezmoi init --apply https://github.com/luchhh/my-dotfiles.git
 `chezmoi apply` will:
 - Deploy all config files
 - Run `brew bundle` to install all apps and tools from the Brewfile
-- Set up the Python venv for Claude scripts
-
-**Install asdf runtimes** (asdf itself is installed by brew bundle, but plugins need to be added manually):
-```bash
-asdf plugin add python && asdf install python latest:3.12
-asdf plugin add nodejs && asdf install nodejs latest:20
-```
-
-**Run `chezmoi apply` again** to complete the Python venv setup for Claude scripts (skipped on the first pass since Python wasn't available yet):
-```bash
-chezmoi apply
-```
 
 **After applying**, hook up the zsh config (one-time, per machine):
 ```bash
@@ -77,4 +65,4 @@ Then restart your terminal or run `source ~/.zshrc`.
 
 ### Claude Code
 - Skills: `/commit`, `/ship`
-- Scripts and global rules in `~/.claude/`
+- Global rules in `~/.claude/CLAUDE.md`

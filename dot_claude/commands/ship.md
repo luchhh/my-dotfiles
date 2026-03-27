@@ -29,25 +29,42 @@ Ship the current work: commit any uncommitted changes, push all unpushed commits
    git push -u origin HEAD
    ```
 
-6. Generate a PR description from the full unpushed diff:
+6. Get the full diff of what was just pushed:
    ```
-   git diff origin/HEAD~$N..origin/HEAD | ~/.claude/scripts/.venv/bin/python ~/.claude/scripts/diff_writer.py --format pr
+   git diff origin/HEAD~$N..origin/HEAD
    ```
    Where `$N` is the number of unpushed commits from step 3.
 
-7. Check if a PR already exists for this branch:
+7. Based on the diff, generate a PR description directly using exactly this format:
+   ```
+   **{imperative title under 60 chars}**
+
+   ## What
+   - (bullet: what changed)
+
+   ## Why
+   (1-2 sentences: motivation)
+
+   ## Test plan
+   - [ ] (specific thing to verify)
+
+   ## Notes
+   (anything reviewers should know, or remove this section if nothing)
+   ```
+
+8. Check if a PR already exists for this branch:
    ```
    gh pr view --json title,url 2>/dev/null
    ```
 
-8. If no PR exists — create one:
+9. If no PR exists — create one:
    ```
-   gh pr create --title "<title from step 6>" --body "<body from step 6>"
+   gh pr create --title "<title from step 7>" --body "<body from step 7>"
    ```
 
    If a PR already exists — update it:
    ```
-   gh pr edit --title "<title from step 6>" --body "<body from step 6>"
+   gh pr edit --title "<title from step 7>" --body "<body from step 7>"
    ```
 
-9. Show the PR url.
+10. Show the PR url.
