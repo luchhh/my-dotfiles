@@ -1,6 +1,7 @@
 brew "asdf"
 brew "gh"
 brew "git"
+brew "tmux"
 
 cask "bitwarden"
 cask "brave-browser"

@@ -47,7 +47,7 @@ Then restart your terminal or run `source ~/.zshrc`.
 - **Optional**: fzf integration if installed
 
 ### tmux
-- **Prefix**: `Alt-Space` (instead of default `Ctrl-b`)
+- **Prefix**: `Ctrl+a` (instead of default `Ctrl-b`)
 - **Mouse**: Enabled
 - **Vi mode**: Copy mode uses vim keybindings
 - **Pane splitting**: `prefix + v` (horizontal), `prefix + i` (vertical)
