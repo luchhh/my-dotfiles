@@ -10,5 +10,8 @@ source ~/.config/zsh/lib/git.zsh #needed for prompt
 unfunction complete
 source ~/.config/zsh/lib/prompt.zsh
 
+# asdf shims
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 # Optional tools
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

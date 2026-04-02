@@ -2,6 +2,7 @@ brew "asdf"
 brew "gh"
 brew "git"
 brew "tmux"
+brew "uv"
 
 cask "bitwarden"
 cask "ghostty"
