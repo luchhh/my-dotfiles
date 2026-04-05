@@ -15,3 +15,6 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # Optional tools
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Local secrets (not tracked by chezmoi)
+[ -f ~/.config/secrets.sh ] && source ~/.config/secrets.sh
