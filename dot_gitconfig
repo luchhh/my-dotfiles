@@ -1,0 +1,6 @@
+[user]
+	name = Luis Dillon
+	email = ldillon83@gmail.com
+
+[includeIf "gitdir:~/Dev/veecle*/"]
+	path = ~/.gitconfig-veecle
