@@ -37,19 +37,16 @@ Ship the current work: commit any uncommitted changes, push all unpushed commits
 
 7. Based on the diff, generate a PR description directly using exactly this format:
    ```
-   **{imperative title under 60 chars}**
+   Use an imperative title under 60 chars. Prefix the title with: fix, feat, chore, refactor, docs. Example: chore: update rust toolchain
+
+   ## Why
+   (1-2 sentences: motivation) 
 
    ## What
    - (bullet: what changed)
 
-   ## Why
-   (1-2 sentences: motivation)
-
-   ## Test plan
-   - [ ] (specific thing to verify)
-
    ## Notes
-   (anything reviewers should know, or remove this section if nothing)
+   (optional. Anything reviewers should know, or remove this section if nothing)
    ```
 
 8. Check if a PR already exists for this branch:
@@ -57,7 +54,7 @@ Ship the current work: commit any uncommitted changes, push all unpushed commits
    gh pr view --json title,url 2>/dev/null
    ```
 
-9. If no PR exists — create one:
+9. If no PR exists — create one in draft:
    ```
    gh pr create --title "<title from step 7>" --body "<body from step 7>"
    ```

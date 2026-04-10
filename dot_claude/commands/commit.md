@@ -13,6 +13,7 @@ Commit current changes with an AI-generated message.
    - Max 72 characters
    - No period at the end
    - No conventional commit prefix (no 'feat:', 'fix:', etc.)
+   - Do not include Claude as co-author
 
 3. Show the generated commit message to the user and ask for confirmation before committing.
 
