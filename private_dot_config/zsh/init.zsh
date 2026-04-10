@@ -11,9 +11,6 @@ done
 
 # Source core configurations
 source ~/.config/zsh/lib/colors.zsh
-function complete() {}  # no-op to suppress bash completion errors when sourcing git.zsh in zsh
-source ~/.config/zsh/lib/git.zsh #needed for prompt
-unfunction complete
 source ~/.config/zsh/lib/prompt.zsh
 
 # asdf shims
