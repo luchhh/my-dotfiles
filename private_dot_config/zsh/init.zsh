@@ -22,5 +22,8 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # direnv hook (silent — set log_format in ~/.config/direnv/direnv.toml, empty string to see output)
 command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
 
+# Veecle-specific config
+[ -f ~/.config/zsh/veecle.zsh ] && source ~/.config/zsh/veecle.zsh
+
 # Local secrets (not tracked by chezmoi)
 [ -f ~/.config/secrets.sh ] && source ~/.config/secrets.sh
