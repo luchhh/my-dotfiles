@@ -6,7 +6,9 @@
   "effortLevel": "high",
   "permissions": {
     "deny": [
-      "mcp__linear__*"
+      "mcp__linear__*",
+      "mcp__vercel__*",
+      "mcp__slack__*"
     ]
   }
 }
