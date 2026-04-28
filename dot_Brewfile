@@ -4,6 +4,7 @@ brew "gh"
 brew "git"
 brew "tmux"
 brew "uv"
+brew "wget"
 
 cask "bitwarden"
 cask "ghostty"
