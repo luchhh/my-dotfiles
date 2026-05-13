@@ -1,4 +1,6 @@
 brew "asdf"
+brew "awscli"
+brew "hashicorp/tap/terraform"
 brew "direnv"
 brew "gh"
 brew "git"
