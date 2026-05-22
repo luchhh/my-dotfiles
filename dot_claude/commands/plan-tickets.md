@@ -1,3 +1,8 @@
+---
+description: Generate a list of Linear tickets from a feature description or URL. Usage: /plan-tickets <url | description>
+argument-hint: <url | description>
+---
+
 Generate a list of Linear tickets from a feature description or URL.
 
 Usage: /plan-tickets <url | plain text description>
