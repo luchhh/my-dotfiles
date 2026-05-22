@@ -16,52 +16,38 @@ Ship the current work: commit any uncommitted changes, push all unpushed commits
 
 2. If there are uncommitted changes, run `/commit` to stage and commit them first.
 
-3. Check for unpushed commits:
+3. Check what's ahead of the base branch:
+   ```
+   git merge-base HEAD origin/main   # or origin/master
+   git log <merge-base>..HEAD --oneline
+   ```
+   If there are no commits ahead of the base at all — stop and tell the user there is nothing to ship.
+
+4. Check for unpushed commits:
    ```
    git log origin/HEAD..HEAD --oneline
    ```
-   If there is nothing to push, stop and tell the user.
-
-4. Show the list of unpushed commits so the user knows what is going out.
-
-5. Push:
+   If there are unpushed commits — show them to the user, then push:
    ```
    git push -u origin HEAD
    ```
+   If everything is already pushed — skip the push and continue.
 
-6. Get the full diff of what was just pushed:
-   ```
-   git diff origin/HEAD~$N..origin/HEAD
-   ```
-   Where `$N` is the number of unpushed commits from step 3.
+5. Invoke `/describe pr` to generate the PR title and description.
 
-7. Based on the diff, generate a PR description directly using exactly this format:
-   ```
-   Use an imperative title under 60 chars. Prefix the title with: fix, feat, chore, refactor, docs. Example: chore: update rust toolchain
-
-   ## Why
-   (1-2 sentences: motivation) 
-
-   ## What
-   - (bullet: what changed)
-
-   ## Notes
-   (optional. Anything reviewers should know, or remove this section if nothing)
-   ```
-
-8. Check if a PR already exists for this branch:
+6. Check if a PR already exists for this branch:
    ```
    gh pr view --json title,url 2>/dev/null
    ```
 
-9. If no PR exists — create one in draft:
+7. If no PR exists — create one in draft:
    ```
-   gh pr create --title "<title from step 7>" --body "<body from step 7>"
+   gh pr create --title "<title from step 5>" --body "<body from step 5>"
    ```
 
    If a PR already exists — update it:
    ```
-   gh pr edit --title "<title from step 7>" --body "<body from step 7>"
+   gh pr edit --title "<title from step 5>" --body "<body from step 5>"
    ```
 
-10. Show the PR url.
+8. Show the PR url.

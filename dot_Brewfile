@@ -1,5 +1,6 @@
 brew "asdf"
 brew "awscli"
+cask "session-manager-plugin"
 brew "hashicorp/tap/terraform"
 brew "direnv"
 brew "gh"

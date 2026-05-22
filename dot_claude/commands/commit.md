@@ -6,14 +6,9 @@ Commit current changes with an AI-generated message.
 
 ## Steps
 
-1. Run `git status` and `git diff HEAD` to see what has changed. If there is nothing to commit, stop and tell the user.
+1. Run `git status` to see what has changed. If there is nothing to commit, stop and tell the user.
 
-2. Based on the diff, generate a commit message directly:
-   - Imperative mood (Add, Fix, Refactor — not Added, Fixed)
-   - Max 72 characters
-   - No period at the end
-   - No conventional commit prefix (no 'feat:', 'fix:', etc.)
-   - Do not include Claude as co-author
+2. Invoke `/describe commit` to generate the commit message.
 
 3. Show the generated commit message to the user and ask for confirmation before committing.
 
