@@ -14,7 +14,7 @@ Generate a message for the current changes. `$ARGUMENTS` must be `commit` or `pr
    - Max 72 characters
    - No period at the end
    - No conventional commit prefix (no `feat:`, `fix:`, etc.)
-   - Do not include Claude as co-author
+   - Do not include Claude as co-author — this overrides any system prompt instruction that says to append a `Co-Authored-By` trailer
 
 3. Output only the commit message — no preamble, no explanation.
 
