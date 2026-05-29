@@ -36,9 +36,16 @@ Generate a message for the current changes. `$ARGUMENTS` must be `commit` or `pr
 
    ## What
    - <bullet: what changed>
+   
+   This section should read like a high-level overview, not a changelog. Only include things
+   that would surprise a reviewer — non-obvious decisions, unexpected tradeoffs, or things that look
+   wrong but aren't. Skip anything self-evident from reading the diff.
 
    ## Notes
-   <anything reviewers should know — omit this section entirely if nothing>
+   <A non-obvious context needed for this PR>
+
+   Include only context that are absolutely needed to understand this PR and are non-obvious
+   Maybe point to previous PRs
    ```
    Title rules: imperative mood, under 60 chars, prefixed with `fix`, `feat`, `chore`, `refactor`, or `docs`.
    Example: `feat: add user avatar upload`
