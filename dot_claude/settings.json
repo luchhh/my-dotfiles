@@ -1,15 +1,58 @@
 {
-  "permissions": {
-    "deny": [
-      "mcp__linear__*",
-      "mcp__vercel__*",
-      "mcp__slack__*"
-    ]
-  },
   "enabledPlugins": {
     "swift-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "slack@claude-plugins-official": true
   },
   "effortLevel": "high",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "model": "opus",
+  "permissions": {
+    "allow": [
+      "mcp__onshape__list_documents",
+      "mcp__onshape__search_documents",
+      "mcp__onshape__get_document",
+      "mcp__onshape__get_document_summary",
+      "mcp__onshape__find_part_studios",
+      "mcp__onshape__get_elements",
+      "mcp__onshape__get_parts",
+      "mcp__onshape__get_features",
+      "mcp__onshape__get_variables",
+      "mcp__onshape__get_assembly",
+      "mcp__onshape__get_assembly_features",
+      "mcp__onshape__get_assembly_positions",
+      "mcp__onshape__get_body_details",
+      "mcp__onshape__get_face_coordinate_system",
+      "mcp__onshape__get_bounding_box",
+      "mcp__onshape__check_assembly_interference"
+    ],
+    "deny": [
+      "mcp__onshape__create_document",
+      "mcp__onshape__create_part_studio",
+      "mcp__onshape__create_assembly",
+      "mcp__onshape__add_assembly_instance",
+      "mcp__onshape__create_sketch_rectangle",
+      "mcp__onshape__create_sketch_circle",
+      "mcp__onshape__create_sketch_line",
+      "mcp__onshape__create_sketch_arc",
+      "mcp__onshape__create_extrude",
+      "mcp__onshape__create_revolve",
+      "mcp__onshape__create_thicken",
+      "mcp__onshape__create_fillet",
+      "mcp__onshape__create_chamfer",
+      "mcp__onshape__create_linear_pattern",
+      "mcp__onshape__create_circular_pattern",
+      "mcp__onshape__create_boolean",
+      "mcp__onshape__create_mate_connector",
+      "mcp__onshape__create_fastened_mate",
+      "mcp__onshape__create_slider_mate",
+      "mcp__onshape__create_revolute_mate",
+      "mcp__onshape__create_cylindrical_mate",
+      "mcp__onshape__transform_instance",
+      "mcp__onshape__set_instance_position",
+      "mcp__onshape__align_instance_to_face",
+      "mcp__onshape__set_variable",
+      "mcp__onshape__delete_feature"
+    ]
+  }
 }
