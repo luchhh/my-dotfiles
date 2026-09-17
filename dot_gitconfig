@@ -3,3 +3,8 @@
 	email = ldillon83@gmail.com
 [includeIf "gitdir:~/Dev/veecle*/"]
 	path = ~/.gitconfig-veecle
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
