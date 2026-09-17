@@ -1,12 +1,4 @@
 {
-  "enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "slack@claude-plugins-official": true
-  },
-  "effortLevel": "high",
-  "skipDangerousModePermissionPrompt": true,
-  "model": "opus",
   "permissions": {
     "allow": [
       "mcp__onshape__list_documents",
@@ -54,5 +46,13 @@
       "mcp__onshape__set_variable",
       "mcp__onshape__delete_feature"
     ]
-  }
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "slack@claude-plugins-official": true
+  },
+  "effortLevel": "medium",
+  "skipDangerousModePermissionPrompt": true,
+  "model": "sonnet"
 }
