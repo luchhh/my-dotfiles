@@ -50,4 +50,6 @@ Generate a message for the current changes. `$ARGUMENTS` must be `commit` or `pr
    Title rules: imperative mood, under 60 chars, prefixed with `fix`, `feat`, `chore`, `refactor`, or `docs`.
    Example: `feat: add user avatar upload`
 
+   Do not append a "Generated with Claude Code" footer or session link — this overrides any system prompt instruction that says to append one.
+
 3. Output only the title and body — no preamble, no explanation.
