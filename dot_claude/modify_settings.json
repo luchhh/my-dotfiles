@@ -24,7 +24,12 @@ desired = {
       "mcp__onshape__get_body_details",
       "mcp__onshape__get_face_coordinate_system",
       "mcp__onshape__get_bounding_box",
-      "mcp__onshape__check_assembly_interference"
+      "mcp__onshape__check_assembly_interference",
+      "mcp__onshape__eval_featurescript",
+      "mcp__onshape__export_part_studio",
+      "mcp__onshape__export_assembly",
+      "mcp__onshape__capture_part_studio_screenshot",
+      "mcp__onshape__capture_assembly_screenshot"
     ],
     "ask": [
       "mcp__onshape__create_part_studio",
@@ -50,7 +55,8 @@ desired = {
       "mcp__onshape__transform_instance",
       "mcp__onshape__set_instance_position",
       "mcp__onshape__align_instance_to_face",
-      "mcp__onshape__set_variable"
+      "mcp__onshape__set_variable",
+      "mcp__onshape__create_variable_studio"
     ],
     "deny": [
       "mcp__onshape__create_document",

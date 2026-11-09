@@ -5,17 +5,21 @@
 # Unlike the remote HTTP servers in run_once_register-claude-mcp-servers.sh,
 # Onshape has no hosted MCP endpoint, so it has to be cloned and built locally.
 #
-# Credentials are NOT handled here. Create a read-only API key
-# (My account -> Developer -> API keys, scope "read your documents" only)
-# and put it in $DEST/.env. That file is gitignored and never enters chezmoi.
+# Credentials are NOT handled here. Create an API key (dev-portal.onshape.com/keys)
+# with "read your documents" + "write to your documents" only — no delete, share,
+# purchase or profile — and put it in $DEST/.env. That file is gitignored and
+# never enters chezmoi. Write tools are gated per call in ~/.claude/settings.json.
 
 set -eu
 
 DEST="$HOME/.local/share/onshape-mcp"
 REPO="https://github.com/hedless/onshape-mcp.git"
-# Pinned to a known-good commit; upstream is a stale community project and
-# tracking develop risks silent breakage. Bump deliberately after testing.
-COMMIT="54d21cc"
+# Pinned to a known-good commit; tracking develop risks silent breakage.
+# Bump deliberately after testing.
+# v0.4.0 (b9e3280): feature builders fixed for the current Onshape API — 54d21cc
+# sent libraryRelationType "NONE" and every extrude/boolean/pattern/revolve 400'd.
+# NB: since v0.4.0 create_document makes documents PUBLIC by default; it stays denied.
+COMMIT="b9e3280"
 
 # --- locate a Python >= 3.10 ---------------------------------------------
 PY=""
@@ -48,9 +52,9 @@ git -C "$DEST" checkout --quiet "$COMMIT"
 [ -d "$DEST/venv" ] || "$PY" -m venv "$DEST/venv"
 "$DEST/venv/bin/pip" install --quiet --upgrade pip
 "$DEST/venv/bin/pip" install --quiet -e "$DEST"
-# Upstream declares an unbounded "mcp>=0.1.0". SDK 2.x removed the
-# Server.list_tools/call_tool decorators this code is built on, so a fresh
-# install resolves to a broken version. Force 1.x after the editable install.
+# SDK 2.x removed the Server.list_tools/call_tool decorators this code is
+# built on. Upstream pins "mcp>=1.2,<2" since v0.4.0; kept as a belt-and-braces
+# guard in case a future bump loosens it.
 "$DEST/venv/bin/pip" install --quiet "mcp<2"
 
 # --- register with Claude Code -------------------------------------------
