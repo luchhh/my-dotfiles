@@ -1,2 +1,8 @@
 macos-option-as-alt = left
 term = xterm-256color
+
+# Send a distinct modified-Enter (CSI 13;2u) for Shift+Enter instead of a raw
+# linefeed. A raw \n is byte-identical to Ctrl+J, which tmux binds to pane
+# navigation and would swallow; the CSI-u form passes through tmux
+# (extended-keys on / csi-u) to OmO as a real Shift+Enter = newline.
+keybind = shift+enter=csi:13;2u

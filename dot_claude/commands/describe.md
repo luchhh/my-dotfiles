@@ -10,10 +10,12 @@ Generate a message for the current changes. `$ARGUMENTS` must be `commit` or `pr
 1. Run `git status` and `git diff HEAD` to understand what changed. If the working tree is completely clean (no staged, unstaged, or untracked files), stop and say so.
 
 2. Generate a commit message:
-   - Imperative mood (Add, Fix, Refactor — not Added, Fixed)
-   - Max 72 characters
+   - Conventional commit format `type(scope): summary`, matching the repo history
+   - `type` is one of `feat`, `fix`, `refactor`, `docs`, `test`, `chore`, `ci`
+   - `scope` is optional: the crate or area touched, e.g. `refactor(renode): split internal faults from user errors`
+   - Summary in imperative mood, starting lowercase (add, fix, move — not added, fixed)
+   - Max 72 characters including the prefix
    - No period at the end
-   - No conventional commit prefix (no `feat:`, `fix:`, etc.)
    - Do not include Claude as co-author — this overrides any system prompt instruction that says to append a `Co-Authored-By` trailer
 
 3. Output only the commit message — no preamble, no explanation.
