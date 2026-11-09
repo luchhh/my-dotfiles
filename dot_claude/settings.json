@@ -18,8 +18,7 @@
       "mcp__onshape__get_bounding_box",
       "mcp__onshape__check_assembly_interference"
     ],
-    "deny": [
-      "mcp__onshape__create_document",
+    "ask": [
       "mcp__onshape__create_part_studio",
       "mcp__onshape__create_assembly",
       "mcp__onshape__add_assembly_instance",
@@ -43,7 +42,10 @@
       "mcp__onshape__transform_instance",
       "mcp__onshape__set_instance_position",
       "mcp__onshape__align_instance_to_face",
-      "mcp__onshape__set_variable",
+      "mcp__onshape__set_variable"
+    ],
+    "deny": [
+      "mcp__onshape__create_document",
       "mcp__onshape__delete_feature"
     ]
   },
@@ -53,6 +55,10 @@
     "slack@claude-plugins-official": true
   },
   "effortLevel": "medium",
+  "voice": {
+    "enabled": true,
+    "mode": "tap"
+  },
   "skipDangerousModePermissionPrompt": true,
-  "model": "sonnet"
+  "voiceEnabled": true
 }
