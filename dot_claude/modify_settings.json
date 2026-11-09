@@ -1,4 +1,12 @@
-{
+#!/opt/homebrew/bin/python3
+# chezmoi modify_ script: preserves the locally-learned `autoMode` block
+# (environment/trust cache written by Claude Code itself) across `chezmoi
+# apply`, instead of letting it get clobbered by the version-controlled
+# settings below. Everything else in this file is managed normally.
+import json
+import sys
+
+desired = {
   "permissions": {
     "allow": [
       "mcp__onshape__list_documents",
@@ -50,15 +58,27 @@
     ]
   },
   "enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "slack@claude-plugins-official": true
+    "swift-lsp@claude-plugins-official": True,
+    "rust-analyzer-lsp@claude-plugins-official": True,
+    "slack@claude-plugins-official": True
   },
   "effortLevel": "medium",
   "voice": {
-    "enabled": true,
+    "enabled": True,
     "mode": "tap"
   },
-  "skipDangerousModePermissionPrompt": true,
-  "voiceEnabled": true
+  "skipDangerousModePermissionPrompt": True,
+  "voiceEnabled": True
 }
+
+current_raw = sys.stdin.read()
+try:
+    current = json.loads(current_raw) if current_raw.strip() else {}
+except json.JSONDecodeError:
+    current = {}
+
+if "autoMode" in current:
+    desired["autoMode"] = current["autoMode"]
+
+json.dump(desired, sys.stdout, indent=2)
+sys.stdout.write("\n")
