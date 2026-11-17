@@ -16,3 +16,7 @@ chezmoi git -- add -A
 chezmoi git -- commit -m "message"
 chezmoi git -- push
 ```
+
+## Git worktrees
+
+Create every git worktree under `~/Dev/worktrees/`.
