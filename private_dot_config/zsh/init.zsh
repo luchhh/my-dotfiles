@@ -4,6 +4,10 @@ autoload -Uz compinit && compinit
 # ls colors
 export CLICOLOR=1
 
+# Default editor
+export EDITOR=nvim
+export VISUAL=nvim
+
 # Source all alias files
 for alias_file in ~/.config/zsh/aliases/*.zsh; do
   source "$alias_file"
